@@ -74,7 +74,7 @@
             </h3>
             
             <!-- วันที่และเวลา -->
-            <div id="date-time" style="font-size: 13px; margin-top: 5px;">5 ธันวาคม 2567 เวลา 11:26:46</div>
+            <div id="date-time" style="font-size: 14px; margin-top: 5px;">5 ธันวาคม 2567 เวลา 11:39:06</div>
         </div>
     </div>
 </header>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="col">
                     <p id="pm-text" class="text-white">คุณภาพอากาศมีผลกระทบต่อสุขภาพ</p>
-                    <span class="badge text-bg-light fs-3" id="pm-level">PM 2.5 | 40 µg/m³</span>
+                    <span class="badge text-bg-light fs-2" id="pm-level">PM 2.5 | 40 µg/m³</span>
                 </div>
             </div>
         </section>
@@ -136,6 +136,8 @@
     </script>
 
 
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -163,6 +165,14 @@
 		@media (min-width: 768px) and (max-width: 991.98px) { .container{max-width:100%!important;}.page_title{font-size:30px;}}
 	</style>
 <script data-cfasync="false" nonce="d16c9099-75dd-425c-b408-41cca82e9f45">try{(function(w,d){!function(j,k,l,m){if(j.zaraz)console.error("zaraz is loaded twice");else{j[l]=j[l]||{};j[l].executed=[];j.zaraz={deferred:[],listeners:[]};j.zaraz._v="5828";j.zaraz._n="d16c9099-75dd-425c-b408-41cca82e9f45";j.zaraz.q=[];j.zaraz._f=function(n){return async function(){var o=Array.prototype.slice.call(arguments);j.zaraz.q.push({m:n,a:o})}};for(const p of["track","set","debug"])j.zaraz[p]=j.zaraz._f(p);j.zaraz.init=()=>{var q=k.getElementsByTagName(m)[0],r=k.createElement(m),s=k.getElementsByTagName("title")[0];s&&(j[l].t=k.getElementsByTagName("title")[0].text);j[l].x=Math.random();j[l].w=j.screen.width;j[l].h=j.screen.height;j[l].j=j.innerHeight;j[l].e=j.innerWidth;j[l].l=j.location.href;j[l].r=k.referrer;j[l].k=j.screen.colorDepth;j[l].n=k.characterSet;j[l].o=(new Date).getTimezoneOffset();if(j.dataLayer)for(const t of Object.entries(Object.entries(dataLayer).reduce(((u,v)=>({...u[1],...v[1]})),{})))zaraz.set(t[0],t[1],{scope:"page"});j[l].q=[];for(;j.zaraz.q.length;){const w=j.zaraz.q.shift();j[l].q.push(w)}r.defer=!0;for(const x of[localStorage,sessionStorage])Object.keys(x||{}).filter((z=>z.startsWith("_zaraz_"))).forEach((y=>{try{j[l]["z_"+y.slice(7)]=JSON.parse(x.getItem(y))}catch{j[l]["z_"+y.slice(7)]=x.getItem(y)}}));r.referrerPolicy="origin";r.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(j[l])));q.parentNode.insertBefore(r,q)};["complete","interactive"].includes(k.readyState)?zaraz.init():j.addEventListener("DOMContentLoaded",zaraz.init)}}(w,d,"zarazData","script");window.zaraz._p=async mY=>new Promise((mZ=>{if(mY){mY.e&&mY.e.forEach((m$=>{try{const na=d.querySelector("script[nonce]"),nb=na?.nonce||na?.getAttribute("nonce"),nc=d.createElement("script");nb&&(nc.nonce=nb);nc.innerHTML=m$;nc.onload=()=>{d.head.removeChild(nc)};d.head.appendChild(nc)}catch(nd){console.error(`Error executing script: ${m$}\n`,nd)}}));Promise.allSettled((mY.f||[]).map((ne=>fetch(ne[0],ne[1]))))}mZ()}));zaraz._p({"e":["(function(w,d){})(window,document)"]});})(window,document)}catch(e){throw fetch("/cdn-cgi/zaraz/t"),e;};</script><script>(function(w,d){})(window,document)</script><script>(function(w,d){})(window,document)</script>
+
+    
+    
+    
+    
+    
+    
+    
 
     <section id="contact">
         <div class="container">
@@ -299,14 +309,51 @@
         </div>
     </section>
     
+
+    
     <script src="https://www.cmuccdc.org/template/js/popper/popper.min.js?v=10d84827e09923454eda09d819f740b9"></script>
     <script src="https://www.cmuccdc.org/template/js/bootstrap-4.3.1/bootstrap.min.js?v=10d84827e09923454eda09d819f740b9"></script>
     <script src="https://www.cmuccdc.org/template/js/main.js?v=10d84827e09923454eda09d819f740b9"></script>
+
+
+
+
+
+
+
+
+
+
+
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PM2.5 Information</title>
     
+
+
+
+    
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
 <br><style>
     body {
         font-family: Arial, sans-serif;
@@ -386,7 +433,7 @@
 </style>
 
 <div class="container">
-    <h5>PM2.5 ข้อมูลและคำแนะนำ</h5>
+    <h5 style="font-size: 17px; margin-bottom: 5px;"><strong>ข้อมูลและคำแนะนำ</strong></h5>
     <div class="level">
         <h2><span class="range">0 ถึง 15.0</span></h2>
         <div class="quality very-good">คุณภาพอากาศดีมาก</div>
@@ -487,4 +534,23 @@
         <div class="mb-1">น.ส.พรรณกมล มนตรี นวก.สาธารณสุขปฏิบัติการ</div>
         <div class="center-text">แหล่งข้อมูล CCDC: Climate Change Data Center</div> <!-- เพิ่มข้อความที่ต้องการให้กึ่งกลางบน footer -->
     </footer>
+
+    
+
+    
+
+
+
+
+
+
+    
+
+
+
+    
+
+
+
+
 </body></html>
