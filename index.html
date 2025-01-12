@@ -6,12 +6,12 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
+            margin: 5;
             padding: 0;
             background-color: #f5f5f5;
         }
         .container {
-            padding: 5px;
+            padding: 1px;
         }
         #pm-widget {
             background-color: #ffffff;
@@ -21,8 +21,8 @@
             margin: 20px 0;
         }
         #aqi-image-container {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             background-color: #ffffff;
             display: flex;
@@ -70,7 +70,7 @@
             text-align: center;
         }
         .risk-group {
-            margin-top: 10px;
+            margin-top: 0px;
             color: black;
         }
         .risk-group span {
@@ -80,32 +80,40 @@
         .header-group {
             display: inline-block;
             text-align: center;
-            line-height: 0.2; /* หรือกำหนดค่าอื่น ๆ ตามต้องการ */
+            line-height: 0;
+            margin: 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://www.tsm.go.th/wp-content/uploads/2021/01/Logo001-Copy-Copy-copy-1.png" alt="Logo" height="46.75" width="159.75">
+        <br>
+<img src="https://www.tsm.go.th/wp-content/uploads/2021/01/Logo001-Copy-Copy-copy-1.png" alt="Logo" height="46.75" width="159.75">
         <div class="header-group">
             <h3>รายงานสถานการณ์คุณภาพอากาศ</h3>
             <h4>โรงพยาบาลสมเด็จพระเจ้าตากสินมหาราช จ.ตาก</h4>
-            <p id="current-datetime">อัพเดตล่าสุด: 12 มกราคม 2568 เวลา 12:53:57</p>
+            <p id="current-datetime">อัพเดตล่าสุด: 12 มกราคม 2568 เวลา 14:38:42</p>
         </div>
         
         <div id="pm-widget" style="background-color: rgb(253, 192, 78);">
             <div id="aqi-image-container">
                 <img id="aqi-image" src="./aqi_icon/ic-face-yellow.svg" alt="Moderate">
             </div>
-            <h1 id="pm-25">29</h1>
-            <p>(ค่า PM2.5 ไม่ควรเกิน 37.5 มคก./ลบม.)</p>
+            
+<h1 id="pm-25" style="font-size: 6em; font-weight: bold; margin: 0;">27</h1>
+
+            
+<p style="line-height: 1.5;"><strong>ค่า PM2.5</strong><br>
+  (ไม่ควรเกิน 37.5 มคก./ลบม.)
+</p>
+
             <h2 id="pm-title">คุณภาพอากาศปานกลาง</h2>
             <p id="pm-text">[ประชาชนทั่วไป] สามารถทำกิจกรรมกลางแจ้งได้ตามปกติ [ผู้ที่ต้องดูแลสุขภาพเป็นพิเศษ] หากมีอาการเบื้องต้น เช่น ไอ หายใจลำบาก ระคายเคือง ตา ควรลดระยะเวลาการทำกิจกรรมกลางแจ้ง</p>
             <p class="risk-group"><span>กลุ่มเสี่ยง</span>: เด็กเล็ก หญิงตั้งครรภ์ ผู้สูงอายุ และผู้มีโรคประจำตัว</p>
         </div>
 
         <div class="aqi-container">
-            <p class="aqi-number" id="pm-aqi">66</p>
+            <p class="aqi-number" id="pm-aqi">59</p>
             <p class="aqi-label">AQI</p>
         </div>
 
