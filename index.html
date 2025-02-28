@@ -1,4 +1,5 @@
-<html lang="th"><head>
+<html lang="th">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รายงานสถานการณ์คุณภาพอากาศ</title>
@@ -88,7 +89,7 @@
 <body>
     <div class="container">
         <br>
-<img src="https://www.tsm.go.th/wp-content/uploads/2021/01/Logo001-Copy-Copy-copy-1.png" alt="Logo" height="46.75" width="159.75">
+        <img src="https://www.tsm.go.th/wp-content/uploads/2021/01/Logo001-Copy-Copy-copy-1.png" alt="Logo" height="46.75" width="159.75">
         <div class="header-group">
             <h3>รายงานสถานการณ์คุณภาพอากาศ</h3>
             <h4>โรงพยาบาลสมเด็จพระเจ้าตากสินมหาราช จ.ตาก</h4>
@@ -100,45 +101,36 @@
                 <img id="aqi-image" src="./aqi_icon/ic-face-yellow.svg" alt="Moderate">
             </div>
             
-<h1 id="pm-25" style="font-size: 6em; font-weight: bold; margin: 0;"></h1>
-
+            <h1 id="pm-25" style="font-size: 6em; font-weight: bold; margin: 0;"></h1>
             
-<p style="line-height: 1.5;"><strong>ค่า PM2.5</strong><br>
-  (ไม่ควรเกิน 37.5 มคก./ลบม.)
-</p>
-
+            <p style="line-height: 1.5;"><strong>ค่า PM2.5</strong><br>(ไม่ควรเกิน 37.5 มคก./ลบม.)</p>
             <h2 id="pm-title"></h2>
             <p id="pm-text"></p>
             <p class="risk-group"><span>กลุ่มเสี่ยง</span>: เด็กเล็ก หญิงตั้งครรภ์ ผู้สูงอายุ และผู้มีโรคประจำตัว</p>
         </div>
-
         <div class="aqi-container">
             <p class="aqi-number" id="pm-aqi">59</p>
             <p class="aqi-label">AQI</p>
         </div>
-
-<div class="container" style="font-size: 14px;"> <!-- ขนาดตัวอักษรพื้นฐาน -->
-    <p>
-        คลินิกมลพิษ <span style="color: orange; font-size: 14px;">ออนไลน์</span> 
-        รพ.สมเด็จพระเจ้าตากสินมหาราช<br>
-        <a href="https://www.pollutionclinic.com/home/diagnose/?gc=tak" style="font-size: 15px;">ประเมินอาการจากการสัมผัสสิ่งแวดล้อม PM2.5 | คลิก</a>
-    </p>
-    <img src="https://raw.githubusercontent.com/project0369/TSMsmart-PM2.5/refs/heads/main/qrui-1733974366097.png" alt="Image description" width="100" height="100">
-    <br>
-</div>
-
+        <div class="container" style="font-size: 14px;">
+            <p>
+                คลินิกมลพิษ <span style="color: orange; font-size: 14px;">ออนไลน์</span> 
+                รพ.สมเด็จพระเจ้าตากสินมหาราช<br>
+                <a href="https://www.pollutionclinic.com/home/diagnose/?gc=tak" style="font-size: 15px;">ประเมินอาการจากการสัมผัสสิ่งแวดล้อม PM2.5 | คลิก</a>
+            </p>
+            <img src="https://raw.githubusercontent.com/project0369/TSMsmart-PM2.5/refs/heads/main/qrui-1733974366097.png" alt="Image description" width="100" height="100">
+            <br>
+        </div>
 
         <div class="footer">
             <p>แหล่งข้อมูล <a href="https://www.cmuccdc.org/tsm" target="_blank">CCDC: Climate Change Data Center</a></p>
             <p>คลินิกมลพิษ กลุ่มงานอาชีวเวชกรรม</p>
-            //พัฒนาระบบโดย ศุภฤกษ์ เนตรแก้ว นวก.โสตฯ,<br>น.ส.พรรณกมล มนตรี นวก.สาธารณสุขปฏิบัติการ
+            พัฒนาระบบโดย ศุภฤกษ์ เนตรแก้ว นวก.โสตฯ,<br>น.ส.พรรณกมล มนตรี นวก.สาธารณสุขปฏิบัติการ
         </div>
     </div>
-
     <script>
         function calculateAQI(Ci) {
             let Cmax, Cmin, Imax, Imin;
-
             if (Ci >= 0 && Ci <= 15) {
                 Cmin = 0;
                 Cmax = 15;
@@ -167,7 +159,6 @@
             } else {
                 throw new Error("Invalid PM2.5 concentration value");
             }
-
             const AQI = ((Imax - Imin) / (Cmax - Cmin)) * (Ci - Cmin) + Imin;
             return Math.round(AQI);
         }
@@ -183,37 +174,54 @@
         setInterval(updateDateTime, 1000);
         updateDateTime();
 
-        fetch(aqiUrl)
-            .then(response => response.json())
-            .then(data => {
-                const aqi = calculateAQI(data.pm25);
-                const rgbValue = data.th_color;
-                const rgb = rgbValue.split(",");
+        function fetchData() {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Raw API data:", data); // ตรวจสอบข้อมูลจาก API
 
-                document.getElementById("pm-aqi").textContent = `${aqi}`;
-                document.getElementById("current-datetime").textContent = `อัพเดตล่าสุด: ${data.log_datetime}`;
-                document.getElementById("pm-25").textContent = `${data.pm25}`;
-                document.getElementById("pm-title").textContent = `${data.th_title}`;
-                document.getElementById("pm-text").textContent = `${data.th_caption}`;
-                document.getElementById("pm-widget").style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+                    // ใช้ข้อมูลตัวแรกใน Array หากข้อมูลมาจาก Array
+                    const firstData = Array.isArray(data) ? data[0] : data;
 
-                const aqiImageElement = document.getElementById('aqi-image');
-                if (aqi <= 50) {
-                    aqiImageElement.src = './aqi_icon/ic-face-green.svg';
-                    aqiImageElement.alt = 'Good';
-                } else if (aqi <= 100) {
-                    aqiImageElement.src = './aqi_icon/ic-face-yellow.svg';
-                    aqiImageElement.alt = 'Moderate';
-                } else if (aqi <= 200) {
-                    aqiImageElement.src = './aqi_icon/ic-face-orange.svg';
-                    aqiImageElement.alt = 'Unhealthy';
-                } else {
-                    aqiImageElement.src = './aqi_icon/ic-face-red.svg';
-                    aqiImageElement.alt = 'Very Unhealthy';
-                }
-            })
-            .catch(error => console.error(error));
+                    const pm25 = parseFloat(firstData.pm25); // แปลงค่า PM2.5 เป็นตัวเลข
+                    const aqi = calculateAQI(pm25);
+
+                    // ตรวจสอบค่าสี
+                    const rgbValue = firstData.th_color || "255,255,255"; // ค่าสีเริ่มต้นหากไม่มีข้อมูล
+                    const rgb = rgbValue.split(",");
+
+                    // อัปเดต UI
+                    document.getElementById("pm-aqi").textContent = `${aqi}`;
+                    document.getElementById("current-datetime").textContent = `อัพเดตล่าสุด: ${firstData.log_datetime}`;
+                    document.getElementById("pm-25").textContent = `${pm25}`;
+                    document.getElementById("pm-title").textContent = `${firstData.th_title}`;
+                    document.getElementById("pm-text").textContent = `${firstData.th_caption}`;
+                    document.getElementById("pm-widget").style.backgroundColor = `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+
+                    // เปลี่ยนไอคอน AQI
+                    const aqiImageElement = document.getElementById('aqi-image');
+                    if (aqi <= 50) {
+                        aqiImageElement.src = './aqi_icon/ic-face-green.svg';
+                        aqiImageElement.alt = 'Good';
+                    } else if (aqi <= 100) {
+                        aqiImageElement.src = './aqi_icon/ic-face-yellow.svg';
+                        aqiImageElement.alt = 'Moderate';
+                    } else if (aqi <= 200) {
+                        aqiImageElement.src = './aqi_icon/ic-face-orange.svg';
+                        aqiImageElement.alt = 'Unhealthy';
+                    } else {
+                        aqiImageElement.src = './aqi_icon/ic-face-red.svg';
+                        aqiImageElement.alt = 'Very Unhealthy';
+                    }
+                })
+                .catch(error => console.error("Error fetching data:", error));
+        }
+
+        // เรียกใช้ fetchData เมื่อโหลดหน้าเว็บ
+        fetchData();
+
+        // ดึงข้อมูลใหม่ทุกๆ 10 นาที
+        setInterval(fetchData, 600000);
     </script>
-
-
-</body></html>
+</body>
+</html>
